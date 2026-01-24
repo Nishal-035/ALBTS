@@ -1,4 +1,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/ProjectController.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/TicketController.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/UserController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Category.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Comment.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Project.java

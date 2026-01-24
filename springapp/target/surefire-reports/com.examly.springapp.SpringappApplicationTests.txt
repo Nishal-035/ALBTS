@@ -1,64 +1,32 @@
 -------------------------------------------------------------------------------
 Test set: com.examly.springapp.SpringappApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 63, Failures: 45, Errors: 0, Skipped: 0, Time elapsed: 3.652 s <<< FAILURE! - in com.examly.springapp.SpringappApplicationTests
-com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_File_Exists  Time elapsed: 0.007 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_File_Exists(SpringappApplicationTests.java:198)
+Tests run: 63, Failures: 37, Errors: 0, Skipped: 0, Time elapsed: 4.52 s <<< FAILURE! - in com.examly.springapp.SpringappApplicationTests
+com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_RequestMapping  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: ❌ No @RequestMapping found on UserController (class or methods) ==> expected: <true> but was: <false>
+	at com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_RequestMapping(SpringappApplicationTests.java:344)
 
-com.examly.springapp.SpringappApplicationTests.Day6_test_ProjectController_File_Exists  Time elapsed: 0.005 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_ProjectController_File_Exists(SpringappApplicationTests.java:204)
+com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_PathVariable  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: ❌ No @PathVariable annotation found in any method parameter of UserController ==> expected: <true> but was: <false>
+	at com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_PathVariable(SpringappApplicationTests.java:373)
 
-com.examly.springapp.SpringappApplicationTests.Day6_test_TicketController_File_Exists  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_TicketController_File_Exists(SpringappApplicationTests.java:210)
+com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_RequestMapping  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: ❌ No @RequestMapping found on TicketController (class or methods) ==> expected: <true> but was: <false>
+	at com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_RequestMapping(SpringappApplicationTests.java:402)
 
-com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_RestController_Annotation  Time elapsed: 0.004 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ UserController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_RestController_Annotation(SpringappApplicationTests.java:225)
+com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_RequestMapping  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: ❌ No @RequestMapping found on ProjectController (class or methods) ==> expected: <true> but was: <false>
+	at com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_RequestMapping(SpringappApplicationTests.java:431)
 
-com.examly.springapp.SpringappApplicationTests.Day6_test_TicketController_Has_RestController_Annotation  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ TicketController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_TicketController_Has_RestController_Annotation(SpringappApplicationTests.java:243)
+com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_PathVariable  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: ❌ No @PathVariable found in any method parameter of TicketController ==> expected: <true> but was: <false>
+	at com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_PathVariable(SpringappApplicationTests.java:460)
 
-com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_PostMapping  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ UserController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_PostMapping(SpringappApplicationTests.java:268)
+com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_PathVariable  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: ❌ No @PathVariable found in any method parameter of ProjectController ==> expected: <true> but was: <false>
+	at com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_PathVariable(SpringappApplicationTests.java:489)
 
-com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_GetMapping  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ UserController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_GetMapping(SpringappApplicationTests.java:292)
-
-com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_PutMapping  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ UserController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day6_test_UserController_Has_PutMapping(SpringappApplicationTests.java:316)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_RequestMapping  Time elapsed: 0.004 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ UserController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_RequestMapping(SpringappApplicationTests.java:347)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_PathVariable  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ UserController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day7_test_UserController_Has_PathVariable(SpringappApplicationTests.java:376)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_RequestMapping  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ TicketController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_RequestMapping(SpringappApplicationTests.java:405)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_RequestMapping  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ ProjectController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_RequestMapping(SpringappApplicationTests.java:434)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_PathVariable  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ TicketController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day7_test_TicketController_Has_PathVariable(SpringappApplicationTests.java:463)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_PathVariable  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: ❌ ProjectController class not found.
-	at com.examly.springapp.SpringappApplicationTests.Day7_test_ProjectController_Has_PathVariable(SpringappApplicationTests.java:492)
-
-com.examly.springapp.SpringappApplicationTests.Day7_test_CategoryController_Has_RequestMapping  Time elapsed: 0.003 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day7_test_CategoryController_Has_RequestMapping  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: ❌ CategoryController class not found.
 	at com.examly.springapp.SpringappApplicationTests.Day7_test_CategoryController_Has_RequestMapping(SpringappApplicationTests.java:521)
 
@@ -66,23 +34,23 @@ com.examly.springapp.SpringappApplicationTests.Day8_test_UserService_File_Exists
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day8_test_UserService_File_Exists(SpringappApplicationTests.java:530)
 
-com.examly.springapp.SpringappApplicationTests.Day8_test_ProjectService_File_Exists  Time elapsed: 0.002 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day8_test_ProjectService_File_Exists  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day8_test_ProjectService_File_Exists(SpringappApplicationTests.java:536)
 
-com.examly.springapp.SpringappApplicationTests.Day8_test_TicketService_File_Exists  Time elapsed: 0.003 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day8_test_TicketService_File_Exists  Time elapsed: 0.004 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day8_test_TicketService_File_Exists(SpringappApplicationTests.java:542)
 
-com.examly.springapp.SpringappApplicationTests.Day8_testAddUser  Time elapsed: 0.072 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day8_testAddUser  Time elapsed: 0.084 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<201> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day8_testAddUser(SpringappApplicationTests.java:554)
 
-com.examly.springapp.SpringappApplicationTests.Day8_testGetAllUsers  Time elapsed: 0.006 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day8_testGetAllUsers  Time elapsed: 0.009 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day8_testGetAllUsers(SpringappApplicationTests.java:564)
 
-com.examly.springapp.SpringappApplicationTests.Day8_testGetUserById  Time elapsed: 0.006 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day8_testGetUserById  Time elapsed: 0.005 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day8_testGetUserById(SpringappApplicationTests.java:574)
 
@@ -90,11 +58,11 @@ com.examly.springapp.SpringappApplicationTests.Day8_testUpdateUser  Time elapsed
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day8_testUpdateUser(SpringappApplicationTests.java:588)
 
-com.examly.springapp.SpringappApplicationTests.Day9_testPagination_PageNumberApplied  Time elapsed: 0.008 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day9_testPagination_PageNumberApplied  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day9_testPagination_PageNumberApplied(SpringappApplicationTests.java:599)
 
-com.examly.springapp.SpringappApplicationTests.Day9_testPagination_PageSizeApplied  Time elapsed: 0.006 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day9_testPagination_PageSizeApplied  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day9_testPagination_PageSizeApplied(SpringappApplicationTests.java:609)
 
@@ -102,15 +70,15 @@ com.examly.springapp.SpringappApplicationTests.Day9_testPagination_SortingPresen
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day9_testPagination_SortingPresent(SpringappApplicationTests.java:619)
 
-com.examly.springapp.SpringappApplicationTests.Day9_testPagination_ContentArrayExists  Time elapsed: 0.006 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day9_testPagination_ContentArrayExists  Time elapsed: 0.008 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day9_testPagination_ContentArrayExists(SpringappApplicationTests.java:630)
 
-com.examly.springapp.SpringappApplicationTests.Day9_testPagination_TotalElementsExists  Time elapsed: 0.036 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day9_testPagination_TotalElementsExists  Time elapsed: 0.005 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day9_testPagination_TotalElementsExists(SpringappApplicationTests.java:640)
 
-com.examly.springapp.SpringappApplicationTests.Day9_testPagination_TotalPagesExists  Time elapsed: 0.006 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day9_testPagination_TotalPagesExists  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day9_testPagination_TotalPagesExists(SpringappApplicationTests.java:650)
 
@@ -118,27 +86,27 @@ com.examly.springapp.SpringappApplicationTests.Day10_testAddProject  Time elapse
 java.lang.AssertionError: Status expected:<201> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testAddProject(SpringappApplicationTests.java:663)
 
-com.examly.springapp.SpringappApplicationTests.Day10_testGetAllProjects  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day10_testGetAllProjects  Time elapsed: 0.039 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testGetAllProjects(SpringappApplicationTests.java:673)
 
-com.examly.springapp.SpringappApplicationTests.Day10_testGetProjectById  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day10_testGetProjectById  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testGetProjectById(SpringappApplicationTests.java:683)
 
-com.examly.springapp.SpringappApplicationTests.Day10_testUpdateProject  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day10_testUpdateProject  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testUpdateProject(SpringappApplicationTests.java:697)
 
-com.examly.springapp.SpringappApplicationTests.Day10_testAddCategory  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day10_testAddCategory  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<201> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testAddCategory(SpringappApplicationTests.java:711)
 
-com.examly.springapp.SpringappApplicationTests.Day10_testGetAllCategories  Time elapsed: 0.006 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day10_testGetAllCategories  Time elapsed: 0.011 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testGetAllCategories(SpringappApplicationTests.java:721)
 
-com.examly.springapp.SpringappApplicationTests.Day10_testGetCategoryById  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day10_testGetCategoryById  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day10_testGetCategoryById(SpringappApplicationTests.java:731)
 
@@ -146,27 +114,27 @@ com.examly.springapp.SpringappApplicationTests.Day11_testGetProjectsByStatus  Ti
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day11_testGetProjectsByStatus(SpringappApplicationTests.java:742)
 
-com.examly.springapp.SpringappApplicationTests.Day12_testGetUsersByRole  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day12_testGetUsersByRole  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day12_testGetUsersByRole(SpringappApplicationTests.java:753)
 
-com.examly.springapp.SpringappApplicationTests.Day12_testGetUserByEmail  Time elapsed: 0.004 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day12_testGetUserByEmail  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day12_testGetUserByEmail(SpringappApplicationTests.java:764)
 
-com.examly.springapp.SpringappApplicationTests.Day12_testGetProjectsByStatus_NotFound  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day12_testGetProjectsByStatus_NotFound  Time elapsed: 0.006 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<204> but was:<404>
 	at com.examly.springapp.SpringappApplicationTests.Day12_testGetProjectsByStatus_NotFound(SpringappApplicationTests.java:775)
 
-com.examly.springapp.SpringappApplicationTests.Day12_testGetUsersByRole_NotFound  Time elapsed: 0.028 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day12_testGetUsersByRole_NotFound  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: Response content expected:<No users found with role: Admin> but was:<>
 	at com.examly.springapp.SpringappApplicationTests.Day12_testGetUsersByRole_NotFound(SpringappApplicationTests.java:786)
 
-com.examly.springapp.SpringappApplicationTests.Day12_testGetUserByEmail_NotFound  Time elapsed: 0.005 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day12_testGetUserByEmail_NotFound  Time elapsed: 0.027 s  <<< FAILURE!
 java.lang.AssertionError: Response content expected:<User not found with email: notfound@example.com> but was:<>
 	at com.examly.springapp.SpringappApplicationTests.Day12_testGetUserByEmail_NotFound(SpringappApplicationTests.java:795)
 
-com.examly.springapp.SpringappApplicationTests.Day13_test_exception_Directory_Exists  Time elapsed: 0.002 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day13_test_exception_Directory_Exists  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day13_test_exception_Directory_Exists(SpringappApplicationTests.java:800)
 
@@ -174,11 +142,11 @@ com.examly.springapp.SpringappApplicationTests.Day13_test_GlobalException_File_E
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day13_test_GlobalException_File_Exists(SpringappApplicationTests.java:806)
 
-com.examly.springapp.SpringappApplicationTests.Day14_test_configuration_Directory_Exists  Time elapsed: 0.002 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day14_test_configuration_Directory_Exists  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day14_test_configuration_Directory_Exists(SpringappApplicationTests.java:812)
 
-com.examly.springapp.SpringappApplicationTests.Day15_testAOPLogFileExists  Time elapsed: 0.002 s  <<< FAILURE!
+com.examly.springapp.SpringappApplicationTests.Day15_testAOPLogFileExists  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at com.examly.springapp.SpringappApplicationTests.Day15_testAOPLogFileExists(SpringappApplicationTests.java:818)
 
