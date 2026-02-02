@@ -31,4 +31,26 @@ public class UserService {
         users.set(0, user);
         return user;
     }
+
+    public List<User> getUsersByRole(String role) {
+        List<User> result = new ArrayList<>();
+        for (User user : users) {
+            if (user.getRole() != null &&
+                user.getRole().equalsIgnoreCase(role)) {
+                result.add(user);
+            }
+        }
+        return result;
+    }
+
+    public User getUserByEmail(String email) {
+        for (User user : users) {
+            if (user.getEmail() != null &&
+                user.getEmail().equalsIgnoreCase(email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
 }

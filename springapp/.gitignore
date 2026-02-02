@@ -1,46 +1,54 @@
-# Compiled class files
-*.class
-
-# Log files
+# ===============================
+# Maven / Build output
+# ===============================
+target/
 *.log
 
-# Maven target directory
-target/
-!.mvn/wrapper/maven-wrapper.jar
-
-# Gradle (if used)
-build/
-.gradle/
-
+# ===============================
 # IDE files
+# ===============================
 
-## Eclipse
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse / Spring Tool Suite
 .project
 .classpath
 .settings/
-bin/
 
-## IntelliJ
-.idea/
-*.iml
-out/
-
-## VS Code
+# VS Code
 .vscode/
 
-# OS files
+# ===============================
+# OS-specific files
+# ===============================
 .DS_Store
 Thumbs.db
 
-# Environment files
+# ===============================
+# Temporary files
+# ===============================
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# ===============================
+# Environment / Secrets
+# ===============================
 .env
+application-local.properties
+application-dev.properties
 
-# Application properties with secrets (optional)
-application-prod.properties
-application-secret.properties
-
-# Node (if frontend inside project)
+# ===============================
+# Node / frontend (if added later)
+# ===============================
 node_modules/
 
-# Coverage reports
-coverage/
+# ===============================
+# Test reports
+# ===============================
+surefire-reports/
