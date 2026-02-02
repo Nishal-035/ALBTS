@@ -36,4 +36,10 @@ public class ProjectController {
     public Project updateProject(@PathVariable Long id, @RequestBody Project project) {
         return projectService.updateProject(id, project);
     }
+
+    @GetMapping("/status/{status}")
+    public List<Project> getProjectsByStatus(@PathVariable String status) {
+        return projectService.getProjectsByStatus(status);
+    }
+
 }

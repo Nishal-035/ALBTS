@@ -31,5 +31,18 @@ public class ProjectService {
         projects.set(0, project);
         return project;
     }
+
+    public List<Project> getProjectsByStatus(String status) {
+    List<Project> result = new ArrayList<>();
+
+    for (Project project : projects) {
+        if (project.getStatus() != null &&
+            project.getStatus().equalsIgnoreCase(status)) {
+            result.add(project);
+        }
+    }
+    return result;
+}
+
 }
 
