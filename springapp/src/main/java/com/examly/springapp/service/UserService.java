@@ -1,6 +1,7 @@
 package com.examly.springapp.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -68,7 +69,8 @@ public class UserService {
     }
 
     // Get user by email
-    public User getUserByEmail(String email) {
-        return userRepo.findByEmail(email);
+    public Optional<User> getUserByEmail(String email) {
+    return userRepo.findByEmail(email);
     }
+
 }

@@ -3,7 +3,6 @@ package com.examly.springapp.model;
 import jakarta.persistence.*;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -16,9 +15,9 @@ public class User {
 
     private String username;
 
+    @Column(unique = true,nullable = false)
     private String email;
     
-    @JsonIgnore
     private String password;
 
     @Enumerated(EnumType.STRING)
