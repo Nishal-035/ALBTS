@@ -1,2 +1,24 @@
-# 2ab4235b-9550-47ef-b1cf-1f3acff4fecb-f608e94d-36f8-4cfb-9765-4fc536eec729
-Repository for Teams Project code and project management
+# Airport Lost Baggage Tracking System
+
+## Tech Stack
+- Java
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Postman
+
+## Features
+- User Management
+- Ticket Management
+- Category Management
+- Assign tickets to staff
+- Update ticket status
+- Add comments to tickets
+
+## How to Run
+1. Configure MySQL in application.properties
+2. Run SpringappApplication
+3. Test APIs using Postman
+
+## Author
+Nishal S

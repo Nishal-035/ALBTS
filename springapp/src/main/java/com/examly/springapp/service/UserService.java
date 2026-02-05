@@ -1,56 +1,74 @@
 package com.examly.springapp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.examly.springapp.model.Role;
 import com.examly.springapp.model.User;
+import com.examly.springapp.repository.UserRepo;
+import com.examly.springapp.exception.ResourceNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class UserService {
 
-    private List<User> users = new ArrayList<>();
+    private final UserRepo userRepo;
 
+    public UserService(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
+
+    private static final Logger logger =
+        LoggerFactory.getLogger(UserService.class);
+
+    // Create user
     public User addUser(User user) {
-        user.setUserId(1L);
-        users.add(user);
-        return user;
+        return userRepo.save(user);
     }
 
+    // Get all users
     public List<User> getAllUsers() {
-        return users;
+        return userRepo.findAll();
     }
 
+    // Get user by ID
     public User getUserById(Long id) {
-        return users.get(0);
+    logger.info("Fetching user with id {}", id);
+
+    return userRepo.findById(id)
+            .orElseThrow(() ->
+                    new ResourceNotFoundException("User not found with id " + id));
+    }   
+
+    // Update user
+    public User updateUser(Long id, User updatedUser) {
+        User existingUser = getUserById(id);
+        existingUser.setUsername(updatedUser.getUsername());
+        existingUser.setEmail(updatedUser.getEmail());
+        existingUser.setRole(updatedUser.getRole());
+        return userRepo.save(existingUser);
     }
 
-    public User updateUser(Long id, User user) {
-        user.setUserId(id);
-        users.set(0, user);
-        return user;
-    }
-
+    // Get users by role
     public List<User> getUsersByRole(String role) {
-        List<User> result = new ArrayList<>();
-        for (User user : users) {
-            if (user.getRole() != null &&
-                user.getRole().equalsIgnoreCase(role)) {
-                result.add(user);
-            }
-        }
-        return result;
+    Role roleEnum;
+
+    try {
+        roleEnum = Role.valueOf(role.toUpperCase());
+    } catch (IllegalArgumentException e) {
+        return List.of(); // invalid role
     }
 
+    return userRepo.findAll()
+            .stream()
+            .filter(user -> user.getRole() == roleEnum)
+            .toList();
+    }
+
+    // Get user by email
     public User getUserByEmail(String email) {
-        for (User user : users) {
-            if (user.getEmail() != null &&
-                user.getEmail().equalsIgnoreCase(email)) {
-                return user;
-            }
-        }
-        return null;
+        return userRepo.findByEmail(email);
     }
-
 }

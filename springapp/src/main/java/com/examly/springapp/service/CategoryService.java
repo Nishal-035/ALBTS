@@ -1,28 +1,34 @@
 package com.examly.springapp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Category;
+import com.examly.springapp.repository.CategoryRepo;
 
 @Service
 public class CategoryService {
 
-    private List<Category> categories = new ArrayList<>();
+    private final CategoryRepo categoryRepo;
 
+    public CategoryService(CategoryRepo categoryRepo) {
+        this.categoryRepo = categoryRepo;
+    }
+
+    // Create category
     public Category addCategory(Category category) {
-        category.setCategoryId(1L);
-        categories.add(category);
-        return category;
+        return categoryRepo.save(category);
     }
 
+    // Get all categories
     public List<Category> getAllCategories() {
-        return categories;
+        return categoryRepo.findAll();
     }
 
+    // Get category by ID
     public Category getCategoryById(Long id) {
-        return categories.get(0);
+        return categoryRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
     }
 }

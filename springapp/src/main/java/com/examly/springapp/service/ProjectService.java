@@ -1,48 +1,54 @@
 package com.examly.springapp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Project;
+import com.examly.springapp.repository.ProjectRepo;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class ProjectService {
 
-    private List<Project> projects = new ArrayList<>();
+    private final ProjectRepo projectRepo;
+
+    public ProjectService(ProjectRepo projectRepo) {
+        this.projectRepo = projectRepo;
+    }
+
+    private static final Logger logger =
+        LoggerFactory.getLogger(ProjectService.class);
 
     public Project addProject(Project project) {
-        project.setProjectId(1L);
-        projects.add(project);
-        return project;
+        logger.info("Adding new project: {}", project.getProjectName());
+        return projectRepo.save(project);
     }
 
     public List<Project> getAllProjects() {
-        return projects;
+        logger.info("Fetching all projects");
+        return projectRepo.findAll();
     }
 
+    // Get project by ID
     public Project getProjectById(Long id) {
-        return projects.get(0);
+        return projectRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Project not found with id: " + id));
     }
 
-    public Project updateProject(Long id, Project project) {
-        project.setProjectId(id);
-        projects.set(0, project);
-        return project;
+    // Update project
+    public Project updateProject(Long id, Project updatedProject) {
+        Project existingProject = getProjectById(id);
+        existingProject.setProjectName(updatedProject.getProjectName());
+        existingProject.setDescription(updatedProject.getDescription());
+        existingProject.setStatus(updatedProject.getStatus());
+        return projectRepo.save(existingProject);
     }
 
+    // Get projects by status
     public List<Project> getProjectsByStatus(String status) {
-    List<Project> result = new ArrayList<>();
-
-    for (Project project : projects) {
-        if (project.getStatus() != null &&
-            project.getStatus().equalsIgnoreCase(status)) {
-            result.add(project);
-        }
+        return projectRepo.findByStatus(status);
     }
-    return result;
 }
-
-}
-

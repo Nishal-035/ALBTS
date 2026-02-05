@@ -2,17 +2,9 @@ package com.examly.springapp.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.examly.springapp.model.Project;
 import com.examly.springapp.service.ProjectService;
@@ -21,41 +13,42 @@ import com.examly.springapp.service.ProjectService;
 @RequestMapping("/api/projects")
 public class ProjectController {
 
-    @Autowired
-    private ProjectService projectService;
+    private final ProjectService projectService;
 
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
+
+    // Create project
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Project addProject(@RequestBody Project project) {
-        return projectService.addProject(project);
+    public ResponseEntity<Project> addProject(@RequestBody Project project) {
+        return new ResponseEntity<>(projectService.addProject(project), HttpStatus.CREATED);
     }
 
+    // Get all projects
     @GetMapping
-    public List<Project> getAllProjects() {
-        return projectService.getAllProjects();
+    public ResponseEntity<List<Project>> getAllProjects() {
+        return ResponseEntity.ok(projectService.getAllProjects());
     }
 
+    // Get project by ID
     @GetMapping("/{id}")
-    public Project getProjectById(@PathVariable Long id) {
-        return projectService.getProjectById(id);
+    public ResponseEntity<Project> getProjectById(@PathVariable Long id) {
+        return ResponseEntity.ok(projectService.getProjectById(id));
     }
 
+    // Update project
     @PutMapping("/{id}")
-    public Project updateProject(@PathVariable Long id, @RequestBody Project project) {
-        return projectService.updateProject(id, project);
+    public ResponseEntity<Project> updateProject(
+            @PathVariable Long id,
+            @RequestBody Project project) {
+
+        return ResponseEntity.ok(projectService.updateProject(id, project));
     }
 
+    // Get projects by status
     @GetMapping("/status/{status}")
-    public ResponseEntity<?> getProjectsByStatus(@PathVariable String status) {
-    List<Project> projects = projectService.getProjectsByStatus(status);
-
-    if (projects.isEmpty()) {
-        return ResponseEntity
-                .status(HttpStatus.NO_CONTENT)
-                .body("No projects found with status: " + status);
+    public ResponseEntity<List<Project>> getProjectsByStatus(@PathVariable String status) {
+        return ResponseEntity.ok(projectService.getProjectsByStatus(status));
     }
-        return ResponseEntity.ok(projects);
-    }
-
-
 }

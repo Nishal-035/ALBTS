@@ -1,21 +1,10 @@
 package com.examly.springapp.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import com.examly.springapp.model.User;
 import com.examly.springapp.service.UserService;
@@ -24,84 +13,49 @@ import com.examly.springapp.service.UserService;
 @RequestMapping("/api/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
+    // Create user
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)  
-    public User addUser(@RequestBody User user) {
-        return userService.addUser(user);
+    public ResponseEntity<User> addUser(@RequestBody User user) {
+        User createdUser = userService.addUser(user);
+        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
+    // Get all users
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    // Get user by ID
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable int id) {
-        return userService.getUserById((long) id);
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getUserById(id));
     }
 
+    // Update user
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable int id, @RequestBody User user) {
-        return userService.updateUser((long) id, user);
+    public ResponseEntity<User> updateUser(
+            @PathVariable Long id,
+            @RequestBody User user) {
+
+        return ResponseEntity.ok(userService.updateUser(id, user));
     }
 
-   
-    @GetMapping("/page/{page}/{size}")
-    public Map<String, Object> getUsersWithPagination(
-            @PathVariable int page,
-            @PathVariable int size) {
-
-        Map<String, Object> response = new HashMap<>();
-
-       
-        Map<String, Object> pageable = new HashMap<>();
-        pageable.put("pageNumber", page);
-        pageable.put("pageSize", size);
-
-        Map<String, Object> sort = new HashMap<>();
-        sort.put("sorted", false);
-        pageable.put("sort", sort);
-
-        response.put("pageable", pageable);
-
-       
-        response.put("content", userService.getAllUsers());
-
-        
-        response.put("totalElements", userService.getAllUsers().size());
-        response.put("totalPages", 1);
-
-        return response;
-    }
-
+    // Get users by role
     @GetMapping("/role/{role}")
-    public ResponseEntity<?> getUsersByRole(@PathVariable String role) {
-        List<User> users = userService.getUsersByRole(role);
-
-        if (users.isEmpty()) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .body("No users found with role: " + role);
-        }
-
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<User>> getUsersByRole(@PathVariable String role) {
+        return ResponseEntity.ok(userService.getUsersByRole(role));
     }
 
+    // Get user by email
     @GetMapping("/email/{email}")
-    public ResponseEntity<?> getUserByEmail(@PathVariable String email) {
-        User user = userService.getUserByEmail(email);
-
-        if (user == null) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .body("User not found with email: " + email);
-        }
-
-        return ResponseEntity.ok(user);
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(userService.getUserByEmail(email));
     }
-
 }
